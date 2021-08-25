@@ -40,12 +40,10 @@
   },
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod.ts",
-    "start": "webpack-dev-server --color --config ./config/webpack.config.dev.ts",
-    "lint": "yarn tslint"
+    "start": "webpack-dev-server --color --config ./config/webpack.config.dev.ts"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
-    "remark": "./src/lib/remark-0.15.0.tar.gz"
+    "normalize.css": "^8.0.1"
   },
   "husky": {
     "hooks": {
@@ -55,14 +53,8 @@
   "lint-staged": {
     "linters": {
       "*.{js,json,yml,md}": [
-        "./node_modules/.bin/prettier --write"
-      ],
-      "*.{ts,ts}": [
-        "yarn lint"
+        "yarn prettier --write"
       ]
-    },
-    "ignore": [
-      "./docs/*.*"
-    ]
+    }
   }
 }

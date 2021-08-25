@@ -10,6 +10,9 @@ const config: webpack.Configuration = {
   entry: [sourceIndex],
   resolve: {
     extensions: ['.ts', '.js', '.json'],
+    fallback: {
+      fs: false,
+    },
   },
   module: {
     rules: [
@@ -34,9 +37,6 @@ const config: webpack.Configuration = {
         loader: 'svg-url-loader',
       },
     ],
-  },
-  node: {
-    fs: 'empty',
   },
   plugins: [
     new MiniCssExtractPlugin({

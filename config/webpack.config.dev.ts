@@ -9,7 +9,13 @@ const config: webpack.Configuration = {
   mode: 'development',
   entry: [sourceIndex],
   resolve: {
+    alias: {
+       path: 'path-browserify',
+    },
     extensions: ['.ts', '.js', '.json'],
+    fallback: {
+      fs:false,
+    },
   },
   module: {
     rules: [
@@ -36,10 +42,7 @@ const config: webpack.Configuration = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[name].css',
-    }),
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './src/template.html',
     }),
@@ -52,9 +55,6 @@ const config: webpack.Configuration = {
   devServer: {
     open: true,
     port: 3000,
-  },
-  node: {
-    fs: 'empty',
   },
 };
 

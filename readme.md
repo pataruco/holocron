@@ -19,19 +19,10 @@ It's a Markdown presentation tool using the new [Webpack server](https://github.
 
 ## How to run it
 
-- On [`./src/index.js`](./src/index.js) add the path of your new presentation to the lesson object
-  ```js
-  const lessons = {
-    flexbox: '../slides/flexbox/flexbox.md',
-    ...
-  };
+- On [`./src/index.ts`](./src/index.ts) add the path of your new presentation from `public/slides` folder
+  ```ts
+  renderSlides('blend-accessibility/slides.md');
   ```
-- Then on `showSlides` instantiation method, replace `lessons.flexbox` value to the new path
-
-  ```js
-  showSlides(lessons.flexbox),
-  ```
-
 - To start the server just run
   ```shell
     yarn start

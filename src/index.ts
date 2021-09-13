@@ -1,7 +1,5 @@
 import 'normalize.css';
 import './main.css';
-// @ts-ignore
-import slides from '../public/slides';
 
 interface SlideSettings {
   count: boolean;
@@ -34,14 +32,11 @@ const slideSettings: SlideSettings = {
   slideNumberFormat: '',
 };
 
-const showSlidesLocally = async (
-  lesson: string,
-  local: boolean = false,
-): Promise<void> => {
-  // slides/git/slides.md
-  slideSettings.sourceUrl = `./slides/git/slides.md`;
+const renderSlides = (slidePath: string) => {
+  slideSettings.sourceUrl = `./slides/${slidePath}`;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   remark.create(slideSettings);
 };
 
-showSlidesLocally(slides.fewdLessons.git, true);
+renderSlides('git/slides.md');

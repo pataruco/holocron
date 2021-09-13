@@ -1,9 +1,4 @@
-// Using export-loader to load remark downloaded from NPM
-// @ts-ignore
-import remark from 'exports-loader?remark!remark/src/remark.js';
 import 'normalize.css';
-import slides from '../slides';
-import getSlide from './lib/fetch-slides';
 import './main.css';
 
 interface SlideSettings {
@@ -37,14 +32,11 @@ const slideSettings: SlideSettings = {
   slideNumberFormat: '',
 };
 
-const showSlidesLocally = async (
-  lesson: string,
-  local: boolean = false,
-): Promise<void> => {
-  local
-    ? (slideSettings.sourceUrl = `./slides/${lesson}`)
-    : (slideSettings.source = await getSlide(lesson));
+const renderSlides = (slidePath: string) => {
+  slideSettings.sourceUrl = `./slides/${slidePath}`;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   remark.create(slideSettings);
 };
 
-showSlidesLocally(slides.uxdi.oneDayWorlshopAfternoon, true);
+renderSlides('git/slides.md');

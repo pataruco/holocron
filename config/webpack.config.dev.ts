@@ -1,15 +1,27 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
-import webpack from 'webpack';
+
+import { Configuration as WebpackConfiguration } from 'webpack';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackDevServerConfiguration;
+}
 
 const sourceIndex = path.resolve(__dirname, '../src/index.ts');
 
-const config: webpack.Configuration = {
+const config: Configuration = {
   mode: 'development',
   entry: [sourceIndex],
   resolve: {
+    alias: {
+      path: 'path-browserify',
+    },
     extensions: ['.ts', '.js', '.json'],
+    fallback: {
+      fs: false,
+    },
   },
   module: {
     rules: [
@@ -36,10 +48,7 @@ const config: webpack.Configuration = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[name].css',
-    }),
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './src/template.html',
     }),
@@ -48,13 +57,9 @@ const config: webpack.Configuration = {
     filename: 'main.js',
     path: path.resolve(__dirname, '../dist'),
   },
-  // @ts-ignore
   devServer: {
     open: true,
     port: 3000,
-  },
-  node: {
-    fs: 'empty',
   },
 };
 

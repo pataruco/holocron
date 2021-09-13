@@ -1,50 +1,45 @@
 {
-  "name": "presentations",
+  "name": "holocron",
   "version": "1.0.0",
-  "repository": "https://github.com/pataruco/presentations.git",
+  "repository": "https://github.com/pataruco/holocron.git",
   "author": "Pedro Martin <pataruco@gmail.com>",
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "@types/convict": "^5.2.2",
     "@types/html-webpack-plugin": "^3.2.1",
-    "@types/mini-css-extract-plugin": "^1.2.2",
-    "@types/node": "^14.14.22",
-    "@types/optimize-css-assets-webpack-plugin": "^5.0.2",
-    "@types/terser-webpack-plugin": "^1.2.1",
-    "@types/webpack": "^4.4.34",
-    "convict": "^6.0.0",
-    "css-loader": "^5.0.1",
-    "exports-loader": "^2.0.0",
-    "favicons-webpack-plugin": "^0.0.9",
-    "html-webpack-plugin": "^4.5.1",
-    "husky": "^2.6.0",
-    "lint-staged": "^8.2.1",
-    "mini-css-extract-plugin": "^0.7.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "prettier": "^2.2.1",
-    "style-loader": "^2.0.0",
-    "svg-url-loader": "^2.3.3",
-    "terser-webpack-plugin": "^1.3.0",
-    "ts-loader": "^8.0.15",
-    "ts-node": "^8.3.0",
-    "tslint": "^5.18.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^4.1.3",
-    "webpack": "^5.19.0",
-    "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
+    "@types/mini-css-extract-plugin": "^2.3.0",
+    "@types/node": "^16.9.1",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^4.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "css-loader": "^6.2.0",
+    "eslint": "^7.32.0",
+    "exports-loader": "^3.0.0",
+    "favicons-webpack-plugin": "^5.0.2",
+    "html-webpack-plugin": "^5.3.2",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "mini-css-extract-plugin": "^2.3.0",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "path-browserify": "^1.0.1",
+    "prettier": "^2.4.0",
+    "style-loader": "^3.2.1",
+    "svg-url-loader": "^7.1.1",
+    "terser-webpack-plugin": "^5.2.4",
+    "ts-loader": "^9.2.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.0"
   },
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod.ts",
-    "start": "webpack-dev-server --display-error-details --color --config ./config/webpack.config.dev.ts",
-    "lint": "yarn tslint"
+    "start": "webpack serve --color --config ./config/webpack.config.dev.ts"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
-    "remark": "./src/lib/remark-0.15.0.tar.gz"
+    "normalize.css": "^8.0.1"
   },
   "husky": {
     "hooks": {
@@ -52,16 +47,10 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.{js,json,yml,md}": [
-        "./node_modules/.bin/prettier --write"
-      ],
-      "*.{ts,ts}": [
-        "yarn lint"
-      ]
-    },
-    "ignore": [
-      "./docs/*.*"
+    "*.{js,json,yml,md}": "yarn prettier --write",
+    "*.{js,ts,json}": [
+      "eslint --fix",
+      "prettier --write"
     ]
   }
 }

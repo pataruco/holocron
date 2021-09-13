@@ -49,7 +49,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,yml,md}": "yarn prettier --write",
+    "*.{js,json,yml,md,css,scss}": "yarn prettier --write",
     "*.{js,ts,json}": [
       "eslint --fix",
       "prettier --write"

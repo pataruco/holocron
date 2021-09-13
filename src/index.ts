@@ -39,4 +39,4 @@ const renderSlides = (slidePath: string) => {
   remark.create(slideSettings);
 };
 
-renderSlides('git/slides.md');
+renderSlides('blend-accessibility/slides.md');

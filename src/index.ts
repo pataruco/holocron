@@ -1,5 +1,5 @@
 import 'normalize.css';
-import './main.css';
+import './styles/slide-index.scss';
 
 interface SlideSettings {
   count: boolean;

@@ -45,16 +45,17 @@ const start = async () => {
     plugins,
   };
   const compiler = webpack(config);
+
   // @ts-ignore
   const server = new webpackDevServer(compiler, {
     headers: {
       'X-SLIDES_PATH': sourceFRomPublic,
     },
     open: true,
-    port: 3000,
+    // port: 3000,
   });
   // port 0 enable to pick a random number
-  server.listen(0);
+  server.start();
 };
 
 if (!module.parent) {

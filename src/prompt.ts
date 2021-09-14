@@ -12,11 +12,6 @@ inquirer.registerPrompt('fuzzypath', inquirerFuzzyPath);
 // Exclude readme files
 const excludePath = (nodePath: string) => nodePath.includes('readme.md');
 
-// TODO:
-// Work from slides folder instead of public/slides
-// Refactor index
-// Refactor fuzzy finder to get only slides
-
 const start = async () => {
   // Get Source
   const prompt = await inquirer.prompt([
@@ -25,14 +20,18 @@ const start = async () => {
       itemType: 'file',
       message: 'Select a slide:',
       name: 'source',
-      rootPath: './slides',
+      rootPath: './public/slides',
       type: 'fuzzypath',
     },
   ]);
 
   const { source } = prompt;
+
+  const sourceFRomPublic = source.replace('public/', '');
+
   // Set HTML title as filename
   const title = getTitleName(source);
+
   const plugins = webpackConfig.plugins?.concat(
     new HtmlWebpackPlugin({
       template: './src/template.html',
@@ -49,7 +48,7 @@ const start = async () => {
   // @ts-ignore
   const server = new webpackDevServer(compiler, {
     headers: {
-      'X-SLIDES_PATH': source,
+      'X-SLIDES_PATH': sourceFRomPublic,
     },
     open: true,
     port: 3000,

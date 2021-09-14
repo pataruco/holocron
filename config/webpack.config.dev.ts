@@ -20,9 +20,6 @@ const config: Configuration = {
       path: 'path-browserify',
     },
     extensions: ['.ts', '.js', '.json'],
-    fallback: {
-      fs: false,
-    },
   },
   module: {
     rules: [
@@ -36,7 +33,14 @@ const config: Configuration = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: [
+              '@babel/preset-env',
+              {
+                targets: {
+                  esmodules: true,
+                },
+              },
+            ],
           },
         },
       },

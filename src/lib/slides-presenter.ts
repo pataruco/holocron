@@ -1,3 +1,6 @@
+import 'normalize.css';
+import '../styles/slide-index.scss';
+
 interface SlideSettings {
   count: boolean;
   highlightLines?: boolean;
@@ -33,6 +36,7 @@ const getSlidePath = async () => {
   const slidePath = response.headers.get('X-SLIDES_PATH');
   if (slidePath) {
     slideSettings.sourceUrl = slidePath;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     remark.create(slideSettings);
   }

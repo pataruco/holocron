@@ -41,8 +41,7 @@
     "webpack-dev-server": "^4.2.0"
   },
   "scripts": {
-    "prompt": "yarn ts-node ./src/prompt.ts",
-    "start": "webpack serve --color --config ./config/webpack.config.dev.ts"
+    "start": "yarn ts-node ./src/index.ts"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"

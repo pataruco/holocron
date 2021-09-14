@@ -1,4 +1,3 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 
@@ -9,7 +8,7 @@ interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
-const sourceIndex = path.resolve(__dirname, '../src/index.ts');
+const sourceIndex = path.resolve(__dirname, '../src/lib/slides-presenter.ts');
 
 const config: Configuration = {
   mode: 'development',
@@ -19,9 +18,6 @@ const config: Configuration = {
       path: 'path-browserify',
     },
     extensions: ['.ts', '.js', '.json'],
-    fallback: {
-      fs: false,
-    },
   },
   module: {
     rules: [
@@ -35,7 +31,14 @@ const config: Configuration = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: [
+              '@babel/preset-env',
+              {
+                targets: {
+                  esmodules: true,
+                },
+              },
+            ],
           },
         },
       },
@@ -47,19 +50,10 @@ const config: Configuration = {
       },
     ],
   },
-  plugins: [
-    new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/template.html',
-    }),
-  ],
+  plugins: [new MiniCssExtractPlugin()],
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, '../dist'),
-  },
-  devServer: {
-    open: true,
-    port: 3000,
   },
 };
 

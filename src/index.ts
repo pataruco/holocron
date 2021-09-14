@@ -1,42 +1,64 @@
-import 'normalize.css';
-import './styles/slide-index.scss';
+import inquirer from 'inquirer';
+import webpack from 'webpack';
+import webpackDevServer from 'webpack-dev-server';
 
-interface SlideSettings {
-  count: boolean;
-  highlightLines?: boolean;
-  highlightSpans: boolean;
-  highlightStyle: 'atom-one-dark' | string;
-  navigation: {
-    click: boolean;
-    scroll: boolean;
-    touch: boolean;
+import webpackConfig from '../config/webpack.config.dev';
+import inquirerFuzzyPath from 'inquirer-fuzzy-path';
+import getTitleName from './lib/get-title-name';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+inquirer.registerPrompt('fuzzypath', inquirerFuzzyPath);
+
+// Exclude readme files
+const excludePath = (nodePath: string) => nodePath.includes('readme.md');
+
+const start = async () => {
+  // Get Source
+  const prompt = await inquirer.prompt([
+    {
+      excludePath,
+      itemType: 'file',
+      message: 'Select a slide:',
+      name: 'source',
+      rootPath: './lessons',
+      type: 'fuzzypath',
+    },
+  ]);
+
+  const { source } = prompt;
+
+  // Set HTML title as filename
+  const title = getTitleName(source);
+
+  const plugins = webpackConfig.plugins?.concat(
+    new HtmlWebpackPlugin({
+      template: './src/template.html',
+      title,
+    }),
+  );
+
+  // Running webpack server
+  const config: webpack.Configuration = {
+    ...webpackConfig,
+    plugins,
   };
-  ratio: string;
-  slideNumberFormat: string;
-  source?: string | null;
-  sourceUrl?: string;
-}
+  const compiler = webpack(config);
 
-const slideSettings: SlideSettings = {
-  count: false,
-  highlightLines: true,
-  highlightSpans: true,
-  highlightStyle: 'atom-one-dark',
-  navigation: {
-    click: false,
-    scroll: false,
-    touch: true,
-  },
-  ratio: '16:9',
-  // ratio: '64:35', // browser aspect ratio
-  slideNumberFormat: '',
-};
-
-const renderSlides = (slidePath: string) => {
-  slideSettings.sourceUrl = `./slides/${slidePath}`;
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  remark.create(slideSettings);
+  const server = new webpackDevServer(
+    {
+      headers: {
+        'X-SLIDES_PATH': source.replace('lessons/', ''),
+      },
+      open: true,
+      static: './lessons',
+    },
+    compiler,
+  );
+  server.start();
 };
 
-renderSlides('blend-accessibility/slides.md');
+if (module.children) {
+  start().then();
+}

@@ -19,14 +19,14 @@ It's a Markdown presentation tool using the new [Webpack server](https://github.
 
 ## How to run it
 
-- On [`./src/index.ts`](./src/index.ts) add the path of your new presentation from `public/slides` folder
-  ```ts
-  renderSlides('blend-accessibility/slides.md');
-  ```
-- To start the server just run
-  ```shell
-    yarn start
-  ```
+1. To start the server just run
+
+```shell
+  yarn start
+```
+
+2. Choose your lesson from the prompt
+3. 🚀
 
 ## Presentation
 

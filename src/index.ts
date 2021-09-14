@@ -20,14 +20,14 @@ const start = async () => {
       itemType: 'file',
       message: 'Select a slide:',
       name: 'source',
-      rootPath: './public/slides',
+      rootPath: './lessons',
       type: 'fuzzypath',
     },
   ]);
 
   const { source } = prompt;
 
-  const sourceFRomPublic = source.replace('public/', '');
+  const sourceFromPublic = source.replace('lessons/', '');
 
   // Set HTML title as filename
   const title = getTitleName(source);
@@ -51,9 +51,10 @@ const start = async () => {
   const server = new webpackDevServer(
     {
       headers: {
-        'X-SLIDES_PATH': sourceFRomPublic,
+        'X-SLIDES_PATH': sourceFromPublic,
       },
       open: true,
+      static: './lessons',
     },
     compiler,
   );

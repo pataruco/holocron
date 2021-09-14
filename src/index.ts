@@ -27,8 +27,6 @@ const start = async () => {
 
   const { source } = prompt;
 
-  const sourceFromPublic = source.replace('lessons/', '');
-
   // Set HTML title as filename
   const title = getTitleName(source);
 
@@ -51,7 +49,7 @@ const start = async () => {
   const server = new webpackDevServer(
     {
       headers: {
-        'X-SLIDES_PATH': sourceFromPublic,
+        'X-SLIDES_PATH': source.replace('lessons/', ''),
       },
       open: true,
       static: './lessons',

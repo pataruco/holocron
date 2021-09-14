@@ -1,4 +1,3 @@
-// import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 
@@ -9,7 +8,6 @@ interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
-// const sourceIndex = path.resolve(__dirname, '../src/index.ts');
 const sourceIndex = path.resolve(__dirname, '../src/lib/slides-presenter.ts');
 
 const config: Configuration = {
@@ -57,10 +55,6 @@ const config: Configuration = {
     filename: 'main.js',
     path: path.resolve(__dirname, '../dist'),
   },
-  // devServer: {
-  //   open: true,
-  //   port: 3000,
-  // },
 };
 
 export default config;

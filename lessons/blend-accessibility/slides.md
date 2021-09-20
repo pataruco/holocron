@@ -150,7 +150,8 @@ Please, go to:
 - ✅ [Good example](https://pataruco.github.io/a11y-examples/good-example)
 - ❌ [Bad example](https://pataruco.github.io/a11y-examples/bad-example)
 - 🪗 [Interactive example](https://pataruco.github.io/a11y-examples/interactive-example)
-- [Accessible images](https://pataruco.github.io/a11y-examples/accessible-images/)
+- [Accessible images](https://pataruco.github.io/a11y-examples/accessible-images)
+- [Multimedia](https://pataruco.github.io/a11y-examples/multimedia)
 - [Live bad website](https://www.lingscars.com/)
 - [Live good website](https://www.bbc.co.uk/news)
 
@@ -313,5 +314,68 @@ These define properties of elements, which can be used to give them extra meanin
 - [Role definitions](https://www.w3.org/TR/wai-aria-1.1/#role_definitions)
 - [State and properties definitions](https://www.w3.org/TR/wai-aria-1.1/#state_prop_def)
 - [Using ARIA: Roles, states, and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles)
+
+---
+
+# A11y as core
+
+## Microdata
+
+> Microdata, as described from schema.org and/or the Microdata spec, are attributes to help browsers build out a machine-readable data structure for browsers to consume. It can be thought of as key:value pairs much like a JSON object.
+
+> from [How Does HTML Microdata Help With Accessibility?](https://scottvinkle.me/blogs/work/how-html-microdata-helps-with-accessibility)
+
+---
+
+```html
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <h1 itemprop="headline">My Blog Post Title</h1>
+    <p itemprop="description">A little extra on what this post is about</p>
+    <ul>
+      <li>
+        Written by
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Scott</span>
+        </span>
+      </li>
+      <li>
+        <time
+          datetime="2020-01-09"
+          itemprop="dateCreated pubdate datePublished"
+        >
+          January 9th, 2020
+        </time>
+      </li>
+    </ul>
+  </header>
+  <img src="article-image.jpg" alt="good looking people" itemprop="image" />
+  <div itemprop="articleBody">
+    <p>
+      Lorem ipsum dolor sit ame, consectetur adipiscing elit. Donec a quam
+      rhoncus, tincidunt ipsum non, ultricies augue…
+    </p>
+  </div>
+</article>
+```
+
+---
+
+# A11y as core
+
+## Microdata
+
+And is part of HTML live standard https://html.spec.whatwg.org/multipage/
+
+---
+
+# Why accessibility is important to me?
+
+- Healthy communities take care of the most vulnerable
+- My life was saved by a person with disabilities
+
+---
+
+# Today I learnt (TIL)
 
 ---

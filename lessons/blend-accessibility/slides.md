@@ -142,3 +142,176 @@ Please, go to:
 ## Practice
 
 ---
+
+# Assistive technology (AT)
+
+## Practice
+
+- ✅ [Good example](https://pataruco.github.io/a11y-examples/good-example)
+- ❌ [Bad example](https://pataruco.github.io/a11y-examples/bad-example)
+- 🪗 [Interactive example](https://pataruco.github.io/a11y-examples/interactive-example)
+- [Accessible images](https://pataruco.github.io/a11y-examples/accessible-images/)
+- [Live bad website](https://www.lingscars.com/)
+- [Live good website](https://www.bbc.co.uk/news)
+
+---
+
+# A11y as core
+
+## Linters
+
+Add `pre-commit` hooks to git to evaluate code before commiting and push to remote
+
+- [prettier](https://prettier.io/): it would help you to catch errors if set incorrect WAI-ARIA HTML tags
+- [eslint](https://eslint.org/): with [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+
+---
+
+# A11y as core
+
+## CLI tools
+
+- [pa11y](https://github.com/pa11y/pa11y): It runs accessibility tests on your pages via the command line or Node.js
+  ```sh
+  yarn global add pa11y
+  pa11y https://www.bbc.co.uk/news
+  ```
+- [lynx](https://lynx.invisible-island.net/): Is a text web browser
+  ```sh
+  brew install lynx
+  lynx
+  ```
+
+---
+
+# A11y as core
+
+## Manual tests using VoiceOver
+
+Enable accessibility shortcut in you mac
+
+**System Preferences** > **Accessibility** > **Show accessibility status in menu bar**
+
+And use it while you are developing
+
+---
+
+# A11y as core
+
+## Semantic HTML: : A good basis for accessibility
+
+As you learn more about HTML — read more resources, look at more examples, etc. — you'll keep seeing a common theme: the importance of using semantic HTML. This means using the correct HTML elements for their correct purpose as much as possible.
+
+A great deal of web content can be made accessible just by making sure the correct HTML elements are used for the correct purpose at all times.
+
+---
+
+# A11y as core
+
+## Semantic HTML: : A good basis for accessibility
+
+You might wonder why this is so important. After all, you can use a combination of CSS and JavaScript to make just about any HTML element behave in whatever way you want.
+
+For example, a control button to play a video on your site could be marked up like this:
+
+```html
+<div>Play video</div>
+```
+
+But as you'll see in greater detail later on, it makes much sense to use the correct element for the job:
+
+```html
+<button>Play video</button>
+```
+
+---
+
+# A11y as core
+
+## Semantic HTML: : A good basis for accessibility
+
+Not only do HTML `<button>`s have some suitable styling applied by default (which you will probably want to override), they also have built-in keyboard accessibility — they can be tabbed between, and activated using Return/Enter.
+
+Semantic HTML doesn't take longer to write than non-semantic (bad) markup if you do it consistently from the start of your project.
+
+Benefits:
+
+- **Easier to develop with**: you get some functionality for free, plus it is arguably easier to understand.
+- **Better on mobile**: semantic HTML is arguably lighter in file size than non-semantic spaghetti code, and easier to make responsive.
+- **Good for SEO**:search engines give more importance to keywords inside headings, links, etc., than keywords included in non-semantic `<div>`s, etc., so your documents will be more findable by customers.
+
+---
+
+# A11y as core
+
+## Semantic HTML: : A good basis for accessibility
+
+### Trivia
+
+Let’s do a mobbing session and try to resolve the HTML Tags memory test
+
+[https://codepen.io/plfstr/full/zYqQeRw](https://codepen.io/plfstr/full/zYqQeRw)
+
+---
+
+# A11y as core
+
+## CSS
+
+CSS when used properly, also have the potential to allow for accessible web experiences, but if misused they can significantly harm accessibility.
+
+```css
+body {
+  font-size: 100%;
+}
+```
+
+---
+
+# A11y as core
+
+## WAI-ARIA basics
+
+WAI-ARIA (**W**eb **A**ccessibility **I**nitiative – **A**ccessible **R**ich **I**nternet **A**pplications) is a technical specification published by the World Wide Web Consortium (W3C) that specifies how to increase the accessibility of web pages, in particular, dynamic content, and user interface components.
+
+---
+
+# A11y as core
+
+## WAI-ARIA basics
+
+### Roles
+
+These define what an element is or does. Many of these are so-called landmark roles, which largely duplicate the semantic value of HTML5 structural elements e.g. `role="navigation"` (`<nav>`) or `role="complementary"` (`<aside>`), but there are also others that describe different pages structures.
+
+---
+
+# A11y as core
+
+## WAI-ARIA basics
+
+### Properties
+
+These define properties of elements, which can be used to give them extra meaning or semantics. As an example, `aria-required="true"` specifies that a form input needs to be filled in to be valid, whereas `aria-labelledby="label"` allows you to put an ID on an element, then reference it as being the label for anything else on the page, including multiple elements, which is not possible using `<label for="input">`
+
+---
+
+# A11y as core
+
+## WAI-ARIA basics
+
+### States
+
+**States**: special properties that define the current conditions of elements, such as `aria-disabled="true"`, which specifies to a screenreader that a form input is currently disabled. States differ from properties in that properties don't change throughout the lifecycle of an app, whereas states can change, generally programmatically via JavaScript.
+
+---
+
+# A11y as core
+
+## WAI-ARIA basics
+
+- [Role definitions](https://www.w3.org/TR/wai-aria-1.1/#role_definitions)
+- [State and properties definitions](https://www.w3.org/TR/wai-aria-1.1/#state_prop_def)
+- [Using ARIA: Roles, states, and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles)
+
+---

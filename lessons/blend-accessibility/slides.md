@@ -1,8 +1,6 @@
-class: bg-blend, middle
+class: middle
 
-# .center[Intro to Accesability on Web]
-
-.logo[![](https://www.blendb2b.com/hubfs/BlendB2B_Theme_2017/Logos/BlendB2B-logo.svg)]
+# .center[Intro to Accesability on the Web]
 
 ---
 
@@ -32,8 +30,10 @@ class: bg-blend, middle
 
 # ⚠️ Warnings ⚠️
 
-- All the following content is based on my opinions and experiences
-- This content is just a scratch to the surface
+- Must of the following content is based on my opinions and experiences
+- This content is just a surface scratch on Accessibility in the Web
+
+---
 
 # Tell us a highlight from a random year
 
@@ -128,7 +128,7 @@ From UNICEF [website](https://www.unicef.org/child-rights-convention/what-are-hu
 
 # Why we should care?
 
-## SEO 💸
+## Business 💸
 
 But if following the law is not enough stimulus, I am going to name another one: SEO! Search engine indexers (Yahoo !, Google, Bing, DuckDuckGo) use semantic HTML to extract information about a web page.
 
@@ -149,23 +149,20 @@ For these reasons accessibility should not be an extra layer, should be the core
 
 **⚠️ The product delivery team!**
 
-To mention some
+To mention some:
 
 - Content designers:
   - Following [plain english standards](https://en.wikipedia.org/wiki/Plain_English)
   - Following content design standards (e.g.: [Content design: planning, writing and managing content](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) , from gov.uk)
-  -
 - UX/Product designers
   - Accessibility usablity tests
-  - Single journeys
   - Focus states
   - Color contrast
   - Information by text / no by color
-  - Support keyboard navigation
 - Data analyst
   - A/B accessibility testing
 - Product owner
-  - Enforce accessibility in all the process of product developmen
+  - Enforce accessibility in all the process of product development
 
 ---
 
@@ -201,7 +198,7 @@ Please, go to:
 
 # A11y as core
 
-## Semantic HTML: : A good basis for accessibility
+## Semantic HTML
 
 As you learn more about HTML — read more resources, look at more examples, etc. — you'll keep seeing a common theme: the importance of using semantic HTML. This means using the correct HTML elements for their correct purpose as much as possible.
 
@@ -211,7 +208,7 @@ A great deal of web content can be made accessible just by making sure the corre
 
 # A11y as core
 
-## Semantic HTML: : A good basis for accessibility
+## Semantic HTML
 
 You might wonder why this is so important. After all, you can use a combination of CSS and JavaScript to make just about any HTML element behave in whatever way you want.
 
@@ -231,7 +228,7 @@ But as you'll see in greater detail later on, it makes much sense to use the cor
 
 # A11y as core
 
-## Semantic HTML: : A good basis for accessibility
+## Semantic HTML
 
 Not only do HTML `<button>`s have some suitable styling applied by default (which you will probably want to override), they also have built-in keyboard accessibility — they can be tabbed between, and activated using Return/Enter.
 
@@ -247,7 +244,7 @@ Benefits:
 
 # A11y as core
 
-## Semantic HTML: : A good basis for accessibility
+## Semantic HTML
 
 ### Trivia
 
@@ -263,9 +260,21 @@ Let’s do a mobbing session and try to resolve the HTML Tags memory test
 
 CSS when used properly, also have the potential to allow for accessible web experiences, but if misused they can significantly harm accessibility.
 
+One example is:
+
+### Good ✅
+
 ```css
 body {
   font-size: 100%;
+}
+```
+
+### Not good ❌
+
+```css
+body {
+  font-size: 16px;
 }
 ```
 
@@ -325,7 +334,7 @@ These define properties of elements, which can be used to give them extra meanin
 
 > Microdata, as described from schema.org and/or the Microdata spec, are attributes to help browsers build out a machine-readable data structure for browsers to consume. It can be thought of as key:value pairs much like a JSON object.
 
-> from [How Does HTML Microdata Help With Accessibility?](https://scottvinkle.me/blogs/work/how-html-microdata-helps-with-accessibility)
+from [How Does HTML Microdata Help With Accessibility?](https://scottvinkle.me/blogs/work/how-html-microdata-helps-with-accessibility)
 
 ---
 
@@ -422,4 +431,6 @@ And use it while you are developing
 
 ---
 
-## Thanks
+class: middle
+
+# .center[Gracias]

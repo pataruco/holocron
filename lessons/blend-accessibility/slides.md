@@ -8,13 +8,43 @@ class: bg-blend, middle
 
 # Agenda
 
+- Common definition
+- Broad definition
+- Why we should care?
+  - Ethics
+  - Law
+  - Business
+- Who are the people responsible to deliver?
+- How we can start (from the technical perspective) (with exercises and demos)
+  - Tools
+  - Tips
+  - Patterns
+- Conclusions
+- Pub?
+
 ---
 
 # Hidden agenda
 
+- Inspire/convince digital product delivery teams to bring accessibility to the core of development
+
 ---
 
-# Why are you here ... in 5 emojis
+# ⚠️ Warnings ⚠️
+
+- All the following content is based on my opinions and experiences
+- This content is just a scratch to the surface
+
+# Tell us a highlight from a random year
+
+- [Go to the random year generator](https://pataruco.github.io/ga-fewd-assets/random-year/index.html)
+- Enter your year of birth
+- Tell us your name?
+- Tell us a highlight from your life that happened that year
+- Where are you in the world?
+- One thing you’re hoping to get out of this course?
+- Your favourite ice cream flavour?
+- Popcorn 🍿
 
 ---
 
@@ -28,12 +58,9 @@ class: bg-blend, middle
 
 ## Common definitions
 
-<blockquote>
->"Accessibility is most often used to describe facilities or amenities to assist people with disabilities, as in 'wheelchair accessible'. This can extend to Braille signage, wheelchair ramps, audio signals at pedestrian crossings, walkway contours, website design, and so on."
-</blockquote>
-<cite>
+> "Accessibility is most often used to describe facilities or amenities to assist people with disabilities, as in 'wheelchair accessible'. This can extend to Braille signage, wheelchair ramps, audio signals at pedestrian crossings, walkway contours, website design, and so on."
+
 [Wikipedia](https://en.wikipedia.org/wiki/Accessibility)
-</cite>
 
 ---
 
@@ -41,12 +68,9 @@ class: bg-blend, middle
 
 ## Common definitions
 
-<blockquote>
->"**The Web is fundamentally designed to work for all people**, whatever their hardware, software, language, culture, location, or physical or mental ability. When the Web meets this goal, it is accessible to people with a diverse range of hearing, movement, sight, and cognitive ability.
-</blockquote>
-<cite>
+> "**The Web is fundamentally designed to work for all people**, whatever their hardware, software, language, culture, location, or physical or mental ability. When the Web meets this goal, it is accessible to people with a diverse range of hearing, movement, sight, and cognitive ability.
+
 [w3c](https://www.w3.org/standards/webdesign/accessibility)
-</cite>
 
 ---
 
@@ -117,7 +141,31 @@ It means that to have accessibility as a core leads to better chances that the c
 
 # Why we should care?
 
-For this reason accessibility should not be an extra layer, should be the core of what we do
+For these reasons accessibility should not be an extra layer, should be the core of what we do
+
+---
+
+# Who are the people responsible to deliver?
+
+**⚠️ The product delivery team!**
+
+To mention some
+
+- Content designers:
+  - Following [plain english standards](https://en.wikipedia.org/wiki/Plain_English)
+  - Following content design standards (e.g.: [Content design: planning, writing and managing content](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) , from gov.uk)
+  -
+- UX/Product designers
+  - Accessibility usablity tests
+  - Single journeys
+  - Focus states
+  - Color contrast
+  - Information by text / no by color
+  - Support keyboard navigation
+- Data analyst
+  - A/B accessibility testing
+- Product owner
+  - Enforce accessibility in all the process of product developmen
 
 ---
 
@@ -141,12 +189,6 @@ Please, go to:
 
 ## Practice
 
----
-
-# Assistive technology (AT)
-
-## Practice
-
 - ✅ [Good example](https://pataruco.github.io/a11y-examples/good-example)
 - ❌ [Bad example](https://pataruco.github.io/a11y-examples/bad-example)
 - 🪗 [Interactive example](https://pataruco.github.io/a11y-examples/interactive-example)
@@ -154,46 +196,6 @@ Please, go to:
 - [Multimedia](https://pataruco.github.io/a11y-examples/multimedia)
 - [Live bad website](https://www.lingscars.com/)
 - [Live good website](https://www.bbc.co.uk/news)
-
----
-
-# A11y as core
-
-## Linters
-
-Add `pre-commit` hooks to git to evaluate code before commiting and push to remote
-
-- [prettier](https://prettier.io/): it would help you to catch errors if set incorrect WAI-ARIA HTML tags
-- [eslint](https://eslint.org/): with [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
-
----
-
-# A11y as core
-
-## CLI tools
-
-- [pa11y](https://github.com/pa11y/pa11y): It runs accessibility tests on your pages via the command line or Node.js
-  ```sh
-  yarn global add pa11y
-  pa11y https://www.bbc.co.uk/news
-  ```
-- [lynx](https://lynx.invisible-island.net/): Is a text web browser
-  ```sh
-  brew install lynx
-  lynx
-  ```
-
----
-
-# A11y as core
-
-## Manual tests using VoiceOver
-
-Enable accessibility shortcut in you mac
-
-**System Preferences** > **Accessibility** > **Show accessibility status in menu bar**
-
-And use it while you are developing
 
 ---
 
@@ -369,6 +371,46 @@ And is part of HTML live standard https://html.spec.whatwg.org/multipage/
 
 ---
 
+# A11y as core
+
+## Linters
+
+Add `pre-commit` hooks to git to evaluate code before commiting and push to remote
+
+- [prettier](https://prettier.io/): it would help you to catch errors if set incorrect WAI-ARIA HTML tags
+- [eslint](https://eslint.org/): with [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+
+---
+
+# A11y as core
+
+## CLI tools
+
+- [pa11y](https://github.com/pa11y/pa11y): It runs accessibility tests on your pages via the command line or Node.js
+  ```sh
+  yarn global add pa11y
+  pa11y https://www.bbc.co.uk/news
+  ```
+- [lynx](https://lynx.invisible-island.net/): Is a text web browser
+  ```sh
+  brew install lynx
+  lynx
+  ```
+
+---
+
+# A11y as core
+
+## Manual tests using VoiceOver
+
+Enable accessibility shortcut in you mac
+
+**System Preferences** > **Accessibility** > **Show accessibility status in menu bar**
+
+And use it while you are developing
+
+---
+
 # Why accessibility is important to me?
 
 - Healthy communities take care of the most vulnerable
@@ -379,3 +421,5 @@ And is part of HTML live standard https://html.spec.whatwg.org/multipage/
 # Today I learnt (TIL)
 
 ---
+
+## Thanks

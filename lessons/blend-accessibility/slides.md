@@ -1,6 +1,6 @@
 class: middle
 
-# .center[Intro to Accesability on the Web]
+# .center[Intro to Web accessibility]
 
 ---
 
@@ -8,12 +8,12 @@ class: middle
 
 - Common definition
 - Broad definition
-- Why we should care?
+- Why should we care?
   - Ethics
   - Law
   - Business
 - Who are the people responsible to deliver?
-- How we can start (from the technical perspective) (with exercises and demos)
+- How can we start? (from the technical perspective) (with exercises and demos)
   - Tools
   - Tips
   - Patterns
@@ -30,8 +30,8 @@ class: middle
 
 # ⚠️ Warnings ⚠️
 
-- Must of the following content is based on my opinions and experiences
-- This content is just a surface scratch on Accessibility in the Web
+- Most of the following content is based on my opinions and experiences
+- This content is just scratching the surface on accessibility on the Web
 
 ---
 
@@ -39,7 +39,7 @@ class: middle
 
 - [Go to the random year generator](https://pataruco.github.io/ga-fewd-assets/random-year/index.html)
 - Enter your year of birth
-- Tell us your name?
+- Tell us your name
 - Tell us a highlight from your life that happened that year
 - Where are you in the world?
 - One thing you’re hoping to get out of this course?
@@ -48,13 +48,13 @@ class: middle
 
 ---
 
-# What is Accessability (a11y)
+# What is Web accessibility (a11y)
 
 > Accessibility is often abbreviated as the numeronym a11y, where the number 11 refers to the number of letters omitted.
 
 ---
 
-# What is Accessability (a11y)
+# What is Web accessibility (a11y)
 
 ## Common definitions
 
@@ -64,7 +64,7 @@ class: middle
 
 ---
 
-# What is Accessability (a11y)
+# What is Web accessibility (a11y)
 
 ## Common definitions
 
@@ -74,7 +74,7 @@ class: middle
 
 ---
 
-# What is Accessability (a11y)
+# What is Web accessibility (a11y)
 
 ## Broad definition
 
@@ -82,7 +82,7 @@ Accessibility can be viewed as the **"ability to access"** and benefit from some
 
 ---
 
-# What is Accessability (a11y)
+# What is Web accessibility (a11y)
 
 ## Broad definition
 
@@ -98,7 +98,7 @@ Some examples:
 
 ---
 
-# Why we should care?
+# Why should we care?
 
 ## Human Rights 🇺🇳
 
@@ -114,7 +114,7 @@ From UNICEF [website](https://www.unicef.org/child-rights-convention/what-are-hu
 
 ---
 
-# Why we should care?
+# Why should we care?
 
 ## It is the Law ⚖️
 
@@ -126,7 +126,7 @@ From UNICEF [website](https://www.unicef.org/child-rights-convention/what-are-hu
 
 ---
 
-# Why we should care?
+# Why should we care?
 
 ## Business 💸
 
@@ -139,9 +139,9 @@ It means that to have accessibility as a core leads to better chances that the c
 
 ---
 
-# Why we should care?
+# Why should we care?
 
-For these reasons accessibility should not be an extra layer, should be the core of what we do
+For these reasons, accessibility should not be an extra layer, should be the core of what we do.
 
 ---
 
@@ -157,8 +157,8 @@ To mention some:
 - UX/Product designers
   - Accessibility usablity tests
   - Focus states
-  - Color contrast
-  - Information by text / no by color
+  - Colour contrast
+  - Information by text / no by colour
 - Data analyst
   - A/B accessibility testing
 - Product owner
@@ -230,7 +230,7 @@ But as you'll see in greater detail later on, it makes much sense to use the cor
 
 ## Semantic HTML
 
-Not only do HTML `<button>`s have some suitable styling applied by default (which you will probably want to override), they also have built-in keyboard accessibility — they can be tabbed between, and activated using Return/Enter.
+Not only do HTML `<button>`s have some suitable styling applied by default (which you will probably want to override), but they also have built-in keyboard accessibility — they can be tabbed between, and activated using Return/Enter.
 
 Semantic HTML doesn't take longer to write than non-semantic (bad) markup if you do it consistently from the start of your project.
 
@@ -238,7 +238,7 @@ Benefits:
 
 - **Easier to develop with**: you get some functionality for free, plus it is arguably easier to understand.
 - **Better on mobile**: semantic HTML is arguably lighter in file size than non-semantic spaghetti code, and easier to make responsive.
-- **Good for SEO**:search engines give more importance to keywords inside headings, links, etc., than keywords included in non-semantic `<div>`s, etc., so your documents will be more findable by customers.
+- **Good for SEO**: search engines give more importance to keywords inside headings, links, etc., than keywords included in non-semantic `<div>`s, etc., so your documents will be more findable by customers.
 
 ---
 
@@ -258,7 +258,7 @@ Let’s do a mobbing session and try to resolve the HTML Tags memory test
 
 ## CSS
 
-CSS when used properly, also have the potential to allow for accessible web experiences, but if misused they can significantly harm accessibility.
+CSS (when used properly) also has the potential to provide accessible web experiences. But if misused, it can significantly harm accessibility.
 
 One example is:
 
@@ -294,7 +294,7 @@ WAI-ARIA (**W**eb **A**ccessibility **I**nitiative – **A**ccessible **R**ich *
 
 ### Roles
 
-These define what an element is or does. Many of these are so-called landmark roles, which largely duplicate the semantic value of HTML5 structural elements e.g. `role="navigation"` (`<nav>`) or `role="complementary"` (`<aside>`), but there are also others that describe different pages structures.
+These define what an element is or does. Many of these are so-called landmark roles, which largely duplicate the semantic value of HTML5 structural elements e.g. `role="navigation"` (`<nav>`) or `role="complementary"` (`<aside>`). But there are also others that describe different pages structures.
 
 ---
 
@@ -304,7 +304,7 @@ These define what an element is or does. Many of these are so-called landmark ro
 
 ### Properties
 
-These define properties of elements, which can be used to give them extra meaning or semantics. As an example, `aria-required="true"` specifies that a form input needs to be filled in to be valid, whereas `aria-labelledby="label"` allows you to put an ID on an element, then reference it as being the label for anything else on the page, including multiple elements, which is not possible using `<label for="input">`
+These define properties of elements, which can be used to give them extra meaning or semantics. As an example, `aria-required="true"` specifies that a form input needs to be filled in to be valid. Whereas `aria-labelledby="label"` allows you to put an ID on an element, then reference it as being the label for anything else on the page, including multiple elements, which is not possible using `<label for="input">`
 
 ---
 
@@ -314,7 +314,7 @@ These define properties of elements, which can be used to give them extra meanin
 
 ### States
 
-**States**: special properties that define the current conditions of elements, such as `aria-disabled="true"`, which specifies to a screenreader that a form input is currently disabled. States differ from properties in that properties don't change throughout the lifecycle of an app, whereas states can change, generally programmatically via JavaScript.
+**States**: special properties that define the current conditions of elements, such as `aria-disabled="true"`, which specifies to a screenreader that a form input is currently disabled. States differ from properties in that properties don't change throughout the lifecycle of an app. Whereas states can change programmatically via JavaScript.
 
 ---
 
@@ -376,7 +376,7 @@ from [How Does HTML Microdata Help With Accessibility?](https://scottvinkle.me/b
 
 ## Microdata
 
-And is part of HTML live standard https://html.spec.whatwg.org/multipage/
+And it is part of HTML live standard https://html.spec.whatwg.org/multipage/
 
 ---
 
@@ -412,7 +412,7 @@ Add `pre-commit` hooks to git to evaluate code before commiting and push to remo
 
 ## Manual tests using VoiceOver
 
-Enable accessibility shortcut in you mac
+Enable accessibility shortcuts in you mac
 
 **System Preferences** > **Accessibility** > **Show accessibility status in menu bar**
 
